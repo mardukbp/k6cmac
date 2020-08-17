@@ -13,7 +13,8 @@ func New() *K6cmac {
 	return &K6cmac{}
 }
 
-func (c *K6cmac) generateCmac(ctx context.Context, keyb64 string, data string) string {
+// Method names must begin with a capital letter
+func (c *K6cmac) Generatecmac(ctx context.Context, keyb64 string, data string) string {
 	key, _ := base64.StdEncoding.DecodeString(keyb64)
 	aesCipher, _ := aes.NewCipher(key)
 	signature, _ := cmac.Sum([]byte(data), aesCipher, 8)
